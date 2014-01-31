@@ -295,8 +295,8 @@ class Validator(object):
         if isinstance(value, list):
             list_errors = {}
             for i in range(len(value)):
-                validator = self.__class__({i: schema})
-                validator.validate({i: value[i]})
+                validator = self.__class__(schema)
+                validator.validate(value[i])
                 list_errors.update(validator.errors)
             if len(list_errors):
                 self._error(field, list_errors)
